@@ -1,7 +1,7 @@
 from flask import Flask, request, redirect, render_template
 
 
-app = Flask(__name__)
+app = Flask(__name__ , static_url_path='/static')
 
 
 @app.route("/")
@@ -10,11 +10,11 @@ def index():
 
 # @app.route("/clients")
 # def mod():
-#         return render_template('model.html')
+#         return render_template('clients.html')
 
 # @app.route("/more")
 # def about():
-#         return render_template('about_us.html')
+#         return render_template('more.html')
 
         
 app.config["TEMPLATES_AUTO_RELOAD"] = True
