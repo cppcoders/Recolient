@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <style>
+                body {
+                        background-color: #151419;
+                }
+
+                nav {
+                        background-color: #4C1D95;
+                }
+                .menu {
+                        padding: 20px;
+                        font-size: 1.5em;
+                        color: white;
+                        display: flex;
+                        justify-content: space-evenly;
+                        width: 50%;
+                }
+
+                .menu a:hover {
+                        color: #fed555;
+                        
+                }
+
+                .selected {
+                        color: #fed555;
+                        border-bottom: 1px solid #fed555;
+                }
+        </style>
+</head>
+
+<body>
+        <nav class="h-1"></nav>
+
+        <div class="flex items-center justify-center">
+                <div class="menu">
+                        <a href="/"><span>Home</span></a>
+                        <a href="/clients" class="selected"><span>Clients</span></a>
+                        <a href="/more"><span>More</span></a>
+                </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div class="flex justify-center">
+                <div class="container  flex justify-center items-center">
+                        <div> <input type="text" class="h-14 w-96 pr-8 pl-5 rounded z-0 focus:shadow focus:outline-none"
+                                        placeholder="Search anything...">
+                                <div> <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i> </div>
+                        </div>
+                        <button onclick="search_clients()" id="toggle-record"
+                                class="m-5 px-10 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                                Search
+                        </button>
+                </div>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+</body>

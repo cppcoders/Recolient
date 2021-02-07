@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <style>
+                body {
+                        background-color: #151419;
+                }
+
+                nav {
+                        background-color: #4C1D95;
+                }
+
+                .menu {
+                        padding: 20px;
+                        font-size: 1.5em;
+                        color: white;
+                        display: flex;
+                        justify-content: space-evenly;
+                        width: 50%;
+                }
+
+                .menu a:hover {
+                        color: #fed555;
+                        
+                }
+
+                .selected {
+                        color: #fed555;
+                        border-bottom: 1px solid #fed555;
+                }
+        </style>
+</head>
+
+<body>
+        <nav class="h-1"></nav>
+
+        <div class="flex items-center justify-center">
+                <div class="menu">
+                        <a href="/"><span>Home</span></a>
+                        <a href="/clients"><span>Clients</span></a>
+                        <a href="/more" class="selected"><span>More</span></a>
+                </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+</body>
