@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <style>
+                body {
+                        background-color: #151419;
+                }
+                nav {
+                        background-color: #4C1D95;
+                }
+                .menu {
+                        padding: 20px;
+                        font-size: 1.5em;
+                        color: white;
+                        display: flex;
+                        justify-content: space-evenly;
+                        width: 50%;
+                }
+
+                .menu a:hover {
+                        color: #fed555;
+                }
+
+                .selected {
+                        color: #fed555;
+                }
+
+                .mic-cont {
+                        height: 800px;
+                }
+
+                .recorder-container {
+                        width: 200px;
+                        background-color: #863ce7;
+                        display: block;
+                        margin: 50px auto 0px auto;
+                        border-radius: 100%;
+                        box-shadow: 0px 0px 15px 2px #171718;
+                        cursor: default;
+                        transition: .3s all ease-in;
+                        position: relative;
+                }
+
+                .icon-microphone {
+                        color: #fff;
+                        font-size: 60px;
+                        line-height: 150px;
+                        display: block;
+                        text-align: center;
+                        transition: .1s all ease-in;
+                        position: relative;
+                }
+
+                .outer {
+                        width: 198px;
+                        height: 198px;
+                        transform: scale(1);
+                        border-radius: 100%;
+                        position: absolute;
+                        background-color: transparent;
+                        border: 1px solid #d7d8d8;
+                        z-index: -1;
+                        transition: 0s all ease;
+                        animation: woong 1.5s infinite;
+                }
+
+                .outer-2 {
+                        width: 200px;
+                        height: 200px;
+                        transform: scale(1);
+                        border-radius: 100%;
+                        position: absolute;
+                        background-color: #9e92ca;
+                        z-index: -1;
+                        transition: 1.5s all ease;
+                        animation: woong-2 1.5s infinite;
+                        animation-delay: 2.5s;
+                }
+
+                @keyframes woong {
+                        0% {
+                                -webkit-trasform: scale(1.2);
+                        }
+
+                        50% {
+                                -webkit-transform: scale(1.8);
+                                opacity: 0.5;
+                        }
+
+                        100% {
+                                -webkit-transform: scale(2.4);
+                                opacity: 0;
+                        }
+                }
+
+                @keyframes woong-2 {
+                        0% {
+                                -webkit-transform: scale(1.2);
+                                opacity: 0.6;
+                        }
+
+                        50% {
+                                -webkit-transform: scale(1.6);
+                                opacity: 0.5;
+                        }
+
+                        100% {
+                                -webkit-transform: scale(2);
+                                opacity: 0;
+                        }
+                }
+        </style>
+</head>
+
+<body>
+
+        <nav class="h-1"></nav>
+
+        <div class="flex items-center justify-center">
+                <div class="menu">
+                        <a href="#" class="selected"><span>Home</span></a>
+                        <a href="#"><span>Clients</span></a>
+                        <a href="#"><span>More</span></a>
+                </div>
+        </div>
+
+        <div class="flex flex-col justify-center mic-cont">
+                <div class="recorder-container" id="recorder-container">
+                        <div id="outer"></div>
+                        <div id="outer-2"></div>
+                        <div id="icon-microphone"><img src="static/microphone.png"></div>
+                </div>
+
+                <div class="rounded-md shadow m-20 flex justify-center">
+                        <button onclick="toggle_recording()" id="toggle-record"
+                                class="px-10 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                                Record
+                        </button>
+                </div>
+        </div>
+
+        <script>
+                function toggle_recording() {
+                        var e = document.getElementById("toggle-record")
+                        if (e.innerText == "Record") {
+                                e.innerText = "Stop"
+                                e = document.getElementById("outer");
+                                e.classList.add("outer");
+                                e = document.getElementById("outer-2");
+                                e.classList.add("outer-2");
+                        }
+                        else {
+                                e.innerText = "Record"
+                                e = document.getElementById("outer");
+                                e.classList.remove("outer");
+                                e = document.getElementById("outer-2");
+                                e.classList.remove("outer-2"); 
+                        }
+
+                }
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+
+</body>
