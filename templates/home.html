@@ -8,9 +8,11 @@
                 body {
                         background-color: #151419;
                 }
+
                 nav {
                         background-color: #4C1D95;
                 }
+
                 .menu {
                         padding: 20px;
                         font-size: 1.5em;
@@ -22,7 +24,7 @@
 
                 .menu a:hover {
                         color: #fed555;
-                        
+
                 }
 
                 .selected {
@@ -145,6 +147,24 @@
         </div>
 
         <script>
+                var stream, recorder, chunks, media;
+                media = { tag: 'audio', type: 'audio/webm;codecs=opus', gUM: { audio: true } }
+                function makeLink() {
+                        var file = new File(chunks, "output");
+                        const formData = new FormData();
+                        console.log(file)
+                        formData.append("file", file);
+                        fetch('/Afile', {
+                                method: 'POST',
+                                body: formData,
+                        }).then(res => {
+                                if (res.ok) console.log('OK!');
+                        }).catch(err => {
+                                console.log(err);
+                        });
+
+                }
+
                 function toggle_recording() {
                         var e = document.getElementById("toggle-record")
                         if (e.innerText == "Record") {
@@ -153,13 +173,26 @@
                                 e.classList.add("outer");
                                 e = document.getElementById("outer-2");
                                 e.classList.add("outer-2");
+                                chunks = [];
+                                navigator.mediaDevices.getUserMedia(media.gUM).then(_stream => {
+                                        recorder = new MediaRecorder(_stream);
+                                        recorder.ondataavailable = e => {
+                                                chunks.push(e.data);
+                                        };
+                                });
+                                setTimeout(() => { recorder.start(); }, 200);
+
                         }
                         else {
                                 e.innerText = "Record"
                                 e = document.getElementById("outer");
                                 e.classList.remove("outer");
                                 e = document.getElementById("outer-2");
-                                e.classList.remove("outer-2"); 
+                                e.classList.remove("outer-2");
+                                recorder.stop();
+                                setTimeout(() => { makeLink(); }, 200);
+
+
                         }
                 }
         </script>
