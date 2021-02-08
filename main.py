@@ -20,6 +20,18 @@ def about():
     return render_template('more.html')
 
 
+@app.route("/getfile")
+def getfile():
+    from flask import send_file
+    path_to_file = "myfile.wav"
+
+    return send_file(
+        path_to_file,
+        mimetype="audio/wav",
+        as_attachment=True,
+        attachment_filename="test.wav")
+
+
 @app.route("/Afile", methods=['POST'])
 def afile():
     blob = request.files['file'].read()
