@@ -147,18 +147,29 @@
         </div>
 
         <script>
-                var stream, recorder, chunks, media;
+                var stream, recorder, chunks, media, urll = "http://127.0.0.1:5500/predict";
                 media = { tag: 'audio', type: 'audio/webm;codecs=opus', gUM: { audio: true } }
                 function makeLink() {
                         var file = new File(chunks, "output");
                         const formData = new FormData();
                         console.log(file)
                         formData.append("file", file);
-                        fetch('/Afile', {
+
+
+
+                        fetch("https://anotepad.com/note/read/2k9nbd2g")
+                                .then((response) => response.text())
+                                .then((html) => {
+                                        var parser = new DOMParser();
+                                        var doc = parser.parseFromString(html, 'text/html');
+                                        urll = doc.getElementsByClassName("plaintext")[0].textContent
+                                })
+
+                        fetch(urll, {
                                 method: 'POST',
                                 body: formData,
                         }).then(res => {
-                                if (res.ok) console.log('OK!');
+                                if (res.ok) console.log(res);
                         }).catch(err => {
                                 console.log(err);
                         });
