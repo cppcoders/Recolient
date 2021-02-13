@@ -192,9 +192,8 @@
                         display: none;
                 }
 
-                footer
-                {
-                        background-color: #1e1d22; 
+                footer {
+                        background-color: #1e1d22;
                         padding: 100px;
                 }
         </style>
@@ -280,8 +279,8 @@
 
                                 </div>
                         </div>
-                <!-- ************************************************ Personal Info ***************************************************-->
-                <!-- ------------------------------------------------ ------------- ----------------------------------------------------->
+                        <!-- ************************************************ Personal Info ***************************************************-->
+                        <!-- ------------------------------------------------ ------------- ----------------------------------------------------->
 
 
 
@@ -377,32 +376,31 @@
         </footer>
 
         <script>
-                var stream, recorder, chunks, media, urll = "http://127.0.0.1:5500/predict";
+                var stream, recorder, chunks, media, urll = "/predict", resp;
                 media = { tag: 'audio', type: 'audio/webm;codecs=opus', gUM: { audio: true } }
                 function makeLink() {
                         var file = new File(chunks, "output");
                         const formData = new FormData();
-                        console.log(file)
                         formData.append("file", file);
+                        (async () => {
+                                const rawResponse = await fetch(urll, {
+                                        method: 'POST',
+                                        body: formData
+                                });
+                                const content = await rawResponse.json();
 
-
-
-                        fetch("https://anotepad.com/note/read/2k9nbd2g")
-                                .then((response) => response.text())
-                                .then((html) => {
-                                        var parser = new DOMParser();
-                                        var doc = parser.parseFromString(html, 'text/html');
-                                        urll = doc.getElementsByClassName("plaintext")[0].textContent
-                                })
-
+                                resp = content;
+                        })();
+                        /*
                         fetch(urll, {
                                 method: 'POST',
-                                body: formData,
+                                body: ,
                         }).then(res => {
-                                if (res.ok) console.log(res);
+                                if (res.ok) console.log(res.responseText);
                         }).catch(err => {
                                 console.log(err);
                         });
+                        */
 
                 }
 
