@@ -22,6 +22,10 @@
                         width: 50%;
                 }
 
+                .menu a {
+                        padding: 10px;
+                }
+
                 .menu a:hover {
                         color: #fed555;
 
@@ -116,6 +120,83 @@
                                 opacity: 0;
                         }
                 }
+
+                h3 {
+                        display: inline;
+                }
+
+                .info {
+                        background-color: #1e1d22;
+                }
+
+                .info_selected {
+                        color: white;
+                        border-bottom: 1px solid rgba(200, 77, 50, 255);
+                }
+
+                .info_type {
+                        text-align: center;
+                        color: #6e6e6d;
+                }
+
+                .text_center {
+                        text-align: center;
+                }
+
+                .h3 {
+                        font-size: large;
+                        padding: 10px;
+                        cursor: pointer;
+                }
+
+                .h3:hover {
+                        color: white;
+                }
+
+
+
+                .personal {
+                        padding: 50px;
+                        color: white;
+                }
+
+                .personal .l-left p {
+                        font-size: larger;
+                        color: #fed555;
+
+                }
+
+
+                .personal .r-right p {
+                        font-size: larger;
+                        color: white;
+                }
+
+
+
+                .account {
+                        font-size: larger;
+                        padding: 200px 50px 50px 50px;
+                        color: white;
+                        display: none;
+                }
+
+                .text_yellow {
+                        color: #fed555;
+                }
+
+                .customer_service {
+                        font-size: larger;
+                        padding: 200px 50px 50px 50px;
+                        color: white;
+                        display: none;
+                }
+
+                footer
+                {
+                        background-color: #1e1d22; 
+                        padding: 100px;
+                }
         </style>
 </head>
 
@@ -145,6 +226,155 @@
                         </button>
                 </div>
         </div>
+
+
+
+        <div class="container m-auto" id="information">
+                <div class="info" style="padding: 50px;">
+
+
+                        <div class="info_type flex justify-evenly">
+                                <p class="text_center h3 info_selected" id="personal_info"
+                                        onclick="choose_info('personal')">Personal info</p>
+                                <p class="text_center h3" id="account_info" onclick="choose_info('account')">Account
+                                        info</p>
+                                <p class="text_center h3" id="customer_info" onclick="choose_info('customer')">Customer
+                                        Service info</p>
+                        </div>
+
+
+                        <!-- ************************************************ Personal Info ***************************************************-->
+                        <!-- ------------------------------------------------ ------------- ----------------------------------------------------->
+                        <div id="personal">
+                                <div class="personal flex justify-evenly">
+                                        <div class="left w-3/6 text_center flex justify-start">
+                                                <div class="l-left w-3/6 text_center">
+                                                        <p class="m-20">Name</p>
+                                                        <p class="m-20">Gender</p>
+                                                        <p class="m-20">Age</p>
+                                                </div>
+
+                                                <div class="r-right w-3/6 text_center">
+                                                        <p class="m-20" id="name">Tarek</p>
+                                                        <p class="m-20" id="gender">Male</p>
+                                                        <p class="m-20" id="age">Age</p>
+
+                                                </div>
+                                        </div>
+
+                                        <div class="right w-3/6 text_center flex justify-start">
+                                                <div class="l-left w-3/6 text_center">
+                                                        <p class="m-20">Email</p>
+                                                        <p class="m-20">Phone</p>
+                                                        <p class="m-20">Address</p>
+                                                </div>
+
+                                                <div class="r-right w-3/6 text_center">
+                                                        <p class="m-20" id="name">tarekhassan3874@gmail.com</p>
+                                                        <p class="m-20" id="gender">01068235608</p>
+                                                        <p class="m-20" id="age">Qena, Qism Qena</p>
+
+                                                </div>
+                                        </div>
+
+
+                                </div>
+                        </div>
+                <!-- ************************************************ Personal Info ***************************************************-->
+                <!-- ------------------------------------------------ ------------- ----------------------------------------------------->
+
+
+
+
+
+
+
+                        <!-- ************************************************ Account Info ***************************************************-->
+                        <!-- ------------------------------------------------------------------------------------------------------------------->
+                        <div class="account" id="account">
+                                <div class="grid grid-rows-1 grid-cols-2 text_center">
+                                        <p class="col-span-1 text_yellow">Balance</p>
+                                        <span class="col-span-1">1000 L.E</span>
+                                </div>
+
+                                <div class="flex justify-center">
+                                        <div class="my-20"
+                                                style="width: 50%;height: 1px; background-color: rgb(87, 87, 87);">
+                                        </div>
+                                </div>
+
+                                <div class="grid grid-rows-1 grid-cols-2">
+                                        <div class="col-span-1 text_center" style="padding: 50px;">
+                                                <p>Last withdraw</p>
+                                                <div class="grid grid-rows-1 grid-cols-2" style="padding: 50px;">
+                                                        <p class="col-span-1 text_yellow">Date</p>
+                                                        <p class="col-span-1 text_yellow">Amount</p>
+
+                                                </div>
+
+                                                <div class="grid grid-rows-1 grid-cols-2" style="padding: 50px;">
+                                                        <span class="col-span-1"
+                                                                id="last_withdraw_date">11/2/2021</span>
+                                                        <span class="col-span-1" id="last_withdraw_amount">5000
+                                                                L.E</span>
+                                                </div>
+                                        </div>
+
+                                        <div class="col-span-1  text_center" style="padding: 50px;">
+                                                <p>Last deposit</p>
+                                                <div class="grid grid-rows-1 grid-cols-2" style="padding: 50px;">
+                                                        <p class="col-span-1 text_yellow">Date</p>
+                                                        <p class="col-span-1 text_yellow">Amount</p>
+
+                                                </div>
+                                                <div class="grid grid-rows-1 grid-cols-2" style="padding: 50px;">
+                                                        <span class="col-span-1" id="last_deposit_date">10/2/2021</span>
+                                                        <span class="col-span-1" id="last_deposit_amount">3000
+                                                                L.E</span>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <!-- ************************************************ Account Info ***************************************************-->
+                        <!-- ------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+                        <!-- ************************************************ Customer Info **************************************************-->
+                        <!-- ------------------------------------------------------------------------------------------------------------------->
+                        <div class="customer_service" id="customer_service">
+                                <div class="grid grid-rows-1 grid-cols-2">
+                                        <div class="col-span-2 text_center" style="padding: 50px;">
+                                                <p>Last complaint</p>
+                                                <div class="grid grid-rows-1 grid-cols-2" style="padding: 50px;">
+                                                        <p class="col-span-1 text_yellow">Date</p>
+                                                        <p class="col-span-1 text_yellow">Type</p>
+
+                                                </div>
+
+                                                <div class="grid grid-rows-1 grid-cols-2" style="padding: 50px;">
+                                                        <span class="col-span-1" id="last_call_date">11/2/2021</span>
+                                                        <span class="col-span-1" id="last_call_amount">Credit Card not
+                                                                working</span>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <!-- ************************************************ Customer Info **************************************************-->
+                        <!-- ------------------------------------------------------------------------------------------------------------------->
+
+
+                </div>
+        </div>
+
+
+        <footer class="text_center mt-20">
+                <p style="color: rgb(197, 197, 197);">Copyrights@ 2021 AAST Dr. Yasser Omar's Team </p>
+        </footer>
 
         <script>
                 var stream, recorder, chunks, media, urll = "http://127.0.0.1:5500/predict";
@@ -206,7 +436,53 @@
 
                         }
                 }
+
+                function choose_info(type) {
+
+                        var A, B, C;
+                        var a, b, c;
+                        if (type === 'personal') {
+                                a = document.getElementById('personal_info');
+                                b = document.getElementById('account_info');
+                                c = document.getElementById('customer_info');
+
+                                A = document.getElementById('personal');
+                                B = document.getElementById('account');
+                                C = document.getElementById('customer_service');
+                        }
+                        else if (type == 'account') {
+                                a = document.getElementById('account_info');
+                                b = document.getElementById('personal_info');
+                                c = document.getElementById('customer_info');
+
+                                A = document.getElementById('account');
+                                B = document.getElementById('personal');
+                                C = document.getElementById('customer_service');
+                        }
+                        else {
+                                a = document.getElementById('customer_info');
+                                b = document.getElementById('account_info');
+                                c = document.getElementById('personal_info');
+
+                                A = document.getElementById('customer_service');
+                                B = document.getElementById('account');
+                                C = document.getElementById('personal');
+                        }
+
+                        A.style.display = 'block';
+                        B.style.display = 'none';
+                        C.style.display = 'none';
+
+                        a.classList.add('info_selected');
+                        b.classList.remove('info_selected');
+                        c.classList.remove('info_selected');
+                }
+
+
+
         </script>
+
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
                 crossorigin="anonymous"></script>

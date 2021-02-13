@@ -5,6 +5,7 @@
         <title>Recolient</title>
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <style>
+
                 body {
                         background-color: #151419;
                 }
@@ -21,6 +22,10 @@
                         justify-content: space-evenly;
                         width: 50%;
                 }
+                
+                .menu a {
+                        padding: 10px;
+                }
 
                 .menu a:hover {
                         color: #fed555;
@@ -30,6 +35,18 @@
                 .selected {
                         color: #fed555;
                         border-bottom: 1px solid #fed555;
+                }
+
+
+                .text_center {
+                        text-align: center;
+                }
+
+                
+                footer
+                {
+                        background-color: #1e1d22; 
+                        padding: 100px;
                 }
         </style>
 </head>
@@ -44,6 +61,11 @@
                         <a href="/more" class="selected"><span>More</span></a>
                 </div>
         </div>
+
+
+        <footer class="text_center mt-20">
+                <p style="color: rgb(197, 197, 197);">Copyrights@ 2021 AAST Dr. Yasser Omar's Team </p>
+        </footer>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
