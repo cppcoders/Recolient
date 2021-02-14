@@ -494,7 +494,7 @@
 
 
 
-                var stream, recorder, chunks, media, urll = "http://127.0.0.1:5500/predict";
+                var stream, recorder, chunks, media, urll = "/predict", resp;
                 media = { tag: 'audio', type: 'audio/webm;codecs=opus', gUM: { audio: true } }
                 function makeLink() {
                         var file = new File(chunks, "output");
