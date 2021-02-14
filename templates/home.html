@@ -153,7 +153,9 @@
                         color: white;
                 }
 
-
+                /* #information {
+                        display: none;
+                } */
 
                 .personal {
                         padding: 50px;
@@ -192,9 +194,8 @@
                         display: none;
                 }
 
-                footer
-                {
-                        background-color: #1e1d22; 
+                footer {
+                        background-color: #1e1d22;
                         padding: 100px;
                 }
         </style>
@@ -247,8 +248,8 @@
                         <!-- ------------------------------------------------ ------------- ----------------------------------------------------->
                         <div id="personal">
                                 <div class="flex justify-center" style="padding-top: 50px;">
-                                        <p class="text_yellow text_center h3">ID</p> 
-                                        <p class="h3 text_center" style="color: white;">HT35BND</p>
+                                        <p class="text_yellow text_center h3">ID</p>
+                                        <p class="h3 text_center" style="color: white;" id="id">__</p>
                                 </div>
                                 <div class="personal flex justify-evenly">
                                         <div class="left w-3/6 text_center flex justify-start">
@@ -259,9 +260,9 @@
                                                 </div>
 
                                                 <div class="r-right w-3/6 text_center">
-                                                        <p class="m-20" id="name">Tarek</p>
-                                                        <p class="m-20" id="gender">Male</p>
-                                                        <p class="m-20" id="age">Age</p>
+                                                        <p class="m-20" id="name">__</p>
+                                                        <p class="m-20" id="gender">__</p>
+                                                        <p class="m-20" id="age">__</p>
 
                                                 </div>
                                         </div>
@@ -274,9 +275,9 @@
                                                 </div>
 
                                                 <div class="r-right w-3/6 text_center">
-                                                        <p class="m-20" id="name">tarekhassan3874@gmail.com</p>
-                                                        <p class="m-20" id="gender">01068235608</p>
-                                                        <p class="m-20" id="age">Qena, Qism Qena</p>
+                                                        <p class="m-20" id="email">__</p>
+                                                        <p class="m-20" id="phone">__</p>
+                                                        <p class="m-20" id="address">__</p>
 
                                                 </div>
                                         </div>
@@ -284,8 +285,8 @@
 
                                 </div>
                         </div>
-                <!-- ************************************************ Personal Info ***************************************************-->
-                <!-- ------------------------------------------------ ------------- ----------------------------------------------------->
+                        <!-- ************************************************ Personal Info ***************************************************-->
+                        <!-- ------------------------------------------------ ------------- ----------------------------------------------------->
 
 
 
@@ -298,7 +299,7 @@
                         <div class="account" id="account">
                                 <div class="grid grid-rows-1 grid-cols-2 text_center">
                                         <p class="col-span-1 text_yellow">Balance</p>
-                                        <span class="col-span-1">1000 L.E</span>
+                                        <span class="col-span-1" id="balance">__</span>
                                 </div>
 
                                 <div class="flex justify-center">
@@ -318,9 +319,8 @@
 
                                                 <div class="grid grid-rows-1 grid-cols-2" style="padding: 50px;">
                                                         <span class="col-span-1"
-                                                                id="last_withdraw_date">11/2/2021</span>
-                                                        <span class="col-span-1" id="last_withdraw_amount">5000
-                                                                L.E</span>
+                                                                id="last_withdraw_date">__</span>
+                                                        <span class="col-span-1" id="last_withdraw_amount">__</span>
                                                 </div>
                                         </div>
 
@@ -332,9 +332,8 @@
 
                                                 </div>
                                                 <div class="grid grid-rows-1 grid-cols-2" style="padding: 50px;">
-                                                        <span class="col-span-1" id="last_deposit_date">10/2/2021</span>
-                                                        <span class="col-span-1" id="last_deposit_amount">3000
-                                                                L.E</span>
+                                                        <span class="col-span-1" id="last_deposit_date">__</span>
+                                                        <span class="col-span-1" id="last_deposit_amount">__</span>
                                                 </div>
                                         </div>
                                 </div>
@@ -364,12 +363,12 @@
                                                 </div>
 
                                                 <div class="grid grid-rows-1 grid-cols-5" style="padding: 50px;">
-                                                        <span class="col-span-1" id="last_call_date">11/2/2021</span>
-                                                        <span class="col-span-1" id="last_call_amount">10:56 AM</span>
-                                                        <span class="col-span-1" id="last_call_amount">Credit Card not working</span>
-                                                        <span class="col-span-1" id="last_call_amount">Ahmed Hassan</span>
-                                                        <span class="col-span-1" id="last_call_date">60%</span>
-                                                        
+                                                        <span class="col-span-1" id="last_complaint_date">__</span>
+                                                        <span class="col-span-1" id="last_complaint_time">__</span>
+                                                        <span class="col-span-1" id="last_complaint_type">__</span>
+                                                        <span class="col-span-1" id="last_complaint_employee">__</span>
+                                                        <span class="col-span-1" id="last_complaint_satis">__</span>
+
                                                 </div>
                                         </div>
                                 </div>
@@ -386,7 +385,55 @@
                 <p style="color: rgb(197, 197, 197);">Copyrights@ 2021 AAST Dr. Yasser Omar's Team </p>
         </footer>
 
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"
+                integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+
+
         <script>
+
+
+
+
+                // -------------------------------- Reading the csv file -------------------------------------------
+                var clients = [];
+                $(document).ready(function () {
+                        $.ajax({
+                                type: "GET",
+                                url: "static/clients.csv",
+                                dataType: "text",
+                                success: function (data) { processData(data); }
+                        });
+                });
+
+                function processData(allText) {
+                        var allTextLines = allText.split(/\r\n|\n/);
+                        var headers = allTextLines[0].split(',');
+
+                        for (var i = 1; i < allTextLines.length; i++) {
+                                var data = allTextLines[i].split(',');
+                                if (data.length == headers.length) {
+
+                                        var tarr = {};
+                                        for (var j = 0; j < headers.length; j++) {
+                                                tarr[headers[j]] = data[j]
+                                        }
+                                        clients.push(tarr)
+                                }
+                        }
+
+                }
+                // -------------------------------- Reading the csv file -------------------------------------------
+
+
+
+
+
+
                 var stream, recorder, chunks, media, urll = "http://127.0.0.1:5500/predict";
                 media = { tag: 'audio', type: 'audio/webm;codecs=opus', gUM: { audio: true } }
                 function makeLink() {
@@ -409,12 +456,33 @@
                                 method: 'POST',
                                 body: formData,
                         }).then(res => {
-                                if (res.ok) console.log(res);
+                                if (res.ok) {
+                                        document.getElementById('information').style.display = 'block';
+                                        fill_res_data(res); 
+                                }
                         }).catch(err => {
                                 console.log(err);
                         });
 
                 }
+
+
+                // -------------------------------------------------- fill data based on id from res -----------------------------------------
+                function fill_res_data(res) {
+                        clients.sort(function (a, b) { return parseInt(a.id) - parseInt(b.id) })
+                        var client = clients[87] // res[0]
+                        var I = ["id" , "name" , "gender" , "age" , "email" , "phone" , "address" , "balance" , "last_withdraw_date",
+                                 "last_withdraw_amount" , "last_deposit_date" , "last_deposit_amount" , "last_complaint_date" ,"last_complaint_time",
+                                 "last_complaint_type" , "last_complaint_employee" , "last_complaint_satis"];
+                        for(i of I)
+                        {
+                                p = document.getElementById(i).innerText = client[i] ;
+                        }
+                }
+                // -------------------------------------------------- fill data based on id from res -----------------------------------------
+
+
+
 
                 function toggle_recording() {
                         var e = document.getElementById("toggle-record")
@@ -449,43 +517,39 @@
 
                 function choose_info(type) {
 
-                        var A, B, C;
-                        var a, b, c;
+                        var A = document.getElementById('personal');
+                        var B = document.getElementById('account');
+                        var C = document.getElementById('customer_service');
+                        var a = document.getElementById('personal_info');
+                        var b = document.getElementById('account_info');
+                        var c = document.getElementById('customer_info');
                         if (type === 'personal') {
-                                a = document.getElementById('personal_info');
-                                b = document.getElementById('account_info');
-                                c = document.getElementById('customer_info');
+                                A.style.display = 'block';
+                                B.style.display = 'none';
+                                C.style.display = 'none';
 
-                                A = document.getElementById('personal');
-                                B = document.getElementById('account');
-                                C = document.getElementById('customer_service');
+                                a.classList.add('info_selected');
+                                b.classList.remove('info_selected');
+                                c.classList.remove('info_selected');
                         }
                         else if (type == 'account') {
-                                a = document.getElementById('account_info');
-                                b = document.getElementById('personal_info');
-                                c = document.getElementById('customer_info');
+                                A.style.display = 'none';
+                                B.style.display = 'block';
+                                C.style.display = 'none';
 
-                                A = document.getElementById('account');
-                                B = document.getElementById('personal');
-                                C = document.getElementById('customer_service');
+                                a.classList.remove('info_selected');
+                                b.classList.add('info_selected');
+                                c.classList.remove('info_selected');
                         }
                         else {
-                                a = document.getElementById('customer_info');
-                                b = document.getElementById('account_info');
-                                c = document.getElementById('personal_info');
+                                A.style.display = 'none';
+                                B.style.display = 'none';
+                                C.style.display = 'block';
 
-                                A = document.getElementById('customer_service');
-                                B = document.getElementById('account');
-                                C = document.getElementById('personal');
+                                a.classList.remove('info_selected');
+                                b.classList.remove('info_selected');
+                                c.classList.add('info_selected');
                         }
-
-                        A.style.display = 'block';
-                        B.style.display = 'none';
-                        C.style.display = 'none';
-
-                        a.classList.add('info_selected');
-                        b.classList.remove('info_selected');
-                        c.classList.remove('info_selected');
                 }
 
 
@@ -493,8 +557,6 @@
         </script>
 
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                crossorigin="anonymous"></script>
+
 
 </body>
