@@ -5,8 +5,57 @@
         <title>Recolient</title>
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <style>
+                :root {
+
+                        --m_body: #151419;
+                        --m_nav_headlines: #fff;
+                        --m_nav_headlines_hover: #fed555;
+                        --m_nav_headlines_selected: #fed555;
+                        --m_nav_headlines_active_underline: #fed555;
+                        --m_mic_shadow: #2c2a2e;
+                        --m_mic_outer2: #9e92ca;
+                        --m_info: #1e1d22;
+                        --m_info_headlines: #6e6e6d;
+                        --m_info_headlines_hover: #fff;
+                        --m_info_headlines_active: #fff;
+                        --m_info_headlines_active_underline: rgb(200, 77, 50);
+                        --m_info_names: #fed555;
+                        --m_info_data: #fff;
+
+                        --wm_body: rgb(255, 255, 255);
+                        --wm_nav_headlines: rgb(165, 165, 165);
+                        --wm_nav_headlines_hover: #000;
+                        --wm_nav_headlines_selected: #000;
+                        --wm_nav_headlines_active_underline: rgb(200, 77, 50);
+                        --wm_mic_shadow: rgb(161, 161, 161);
+                        --wm_mic_outer2: rgb(238, 238, 238);
+                        --wm_info: #fff;
+                        --wm_info_headlines: rgb(156, 156, 156);
+                        --wm_info_headlines_hover: #000;
+                        --wm_info_headlines_active: #000;
+                        --wm_info_headlines_active_underline: rgb(200, 77, 50);
+                        --wm_info_names: rgb(156, 156, 156);
+                        --wm_info_data: #000;
+
+
+                        --dm_body: #151419;
+                        --dm_nav_headlines: #fff;
+                        --dm_nav_headlines_hover: #fed555;
+                        --dm_nav_headlines_selected: #fed555;
+                        --dm_nav_headlines_active_underline: #fed555;
+                        --dm_mic_shadow: #2c2a2e;
+                        --dm_mic_outer2: #9e92ca;
+                        --dm_info: #1e1d22;
+                        --dm_info_headlines: #6e6e6d;
+                        --dm_info_headlines_hover: #fff;
+                        --dm_info_headlines_active: #fff;
+                        --dm_info_headlines_active_underline: rgb(200, 77, 50);
+                        --dm_info_names: #fed555;
+                        --dm_info_data: #fff;
+                }
+
                 body {
-                        background-color: #151419;
+                        background-color: var(--m_body);
                 }
 
                 nav {
@@ -16,7 +65,7 @@
                 .menu {
                         padding: 20px;
                         font-size: 1.5em;
-                        color: white;
+                        color: var(--m_nav_headlines);
                         display: flex;
                         justify-content: space-evenly;
                         width: 50%;
@@ -27,13 +76,13 @@
                 }
 
                 .menu a:hover {
-                        color: #fed555;
+                        color: var(--m_nav_headlines_hover);
 
                 }
 
                 .selected {
-                        color: #fed555;
-                        border-bottom: 1px solid #fed555;
+                        color: var(--m_nav_headlines_selected);
+                        border-bottom: 1px solid var(--m_nav_headlines_active_underline);
                 }
 
                 .mic-cont {
@@ -46,7 +95,7 @@
                         display: block;
                         margin: 50px auto 0px auto;
                         border-radius: 100%;
-                        box-shadow: 0px 0px 15px 2px #171718;
+                        box-shadow: 0px 0px 15px 2px var(--m_mic_shadow);
                         cursor: default;
                         transition: .3s all ease-in;
                         position: relative;
@@ -81,7 +130,7 @@
                         transform: scale(1);
                         border-radius: 100%;
                         position: absolute;
-                        background-color: #9e92ca;
+                        background-color: var(--m_mic_outer2);
                         z-index: -1;
                         transition: 1.5s all ease;
                         animation: woong-2 1.5s infinite;
@@ -126,17 +175,18 @@
                 }
 
                 .info {
-                        background-color: #1e1d22;
+                        background-color: var(--m_info);
+                        font-weight: bold;
                 }
 
                 .info_selected {
-                        color: white;
-                        border-bottom: 1px solid rgba(200, 77, 50, 255);
+                        color: var(--m_info_headlines_active);
+                        border-bottom: 1px solid var(--m_info_headlines_active_underline);
                 }
 
                 .info_type {
                         text-align: center;
-                        color: #6e6e6d;
+                        color: var(--m_info_headlines);
                 }
 
                 .text_center {
@@ -150,26 +200,28 @@
                 }
 
                 .h3:hover {
-                        color: white;
+                        color: var(--m_info_headlines_hover);
                 }
 
-
+                /* #information {
+                        display: none;
+                } */
 
                 .personal {
                         padding: 50px;
-                        color: white;
+                        color: var(--m_info_data);
                 }
 
                 .personal .l-left p {
                         font-size: larger;
-                        color: #fed555;
+                        color: var(--m_info_names);
 
                 }
 
 
                 .personal .r-right p {
                         font-size: larger;
-                        color: white;
+                        color: var(--m_info_data);
                 }
 
 
@@ -177,18 +229,18 @@
                 .account {
                         font-size: larger;
                         padding: 200px 50px 50px 50px;
-                        color: white;
+                        color: var(--m_info_data);
                         display: none;
                 }
 
                 .text_yellow {
-                        color: #fed555;
+                        color: var(--m_info_names);
                 }
 
                 .customer_service {
                         font-size: larger;
                         padding: 200px 50px 50px 50px;
-                        color: white;
+                        color: var(--m_info_data);
                         display: none;
                 }
 
@@ -209,7 +261,16 @@
                         <a href="/clients"><span>Clients</span></a>
                         <a href="/more"><span>More</span></a>
                 </div>
+                <div class="flex justify-end">
+                        <button onclick="toggle_mode()" id="toggle_mode"
+                                class="px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-800">
+                                Normal mode
+                        </button>
+                </div>
         </div>
+
+
+
 
         <div class="flex flex-col justify-center mic-cont">
                 <div class="recorder-container" id="recorder-container">
@@ -218,7 +279,7 @@
                         <div id="icon-microphone"><img src="static/microphone.png"></div>
                 </div>
 
-                <div class="rounded-md shadow m-20 flex justify-center">
+                <div class="rounded-md  m-20 flex justify-center">
                         <button onclick="toggle_recording()" id="toggle-record"
                                 class="px-10 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
                                 Record
@@ -228,7 +289,7 @@
 
 
 
-        <div class="container m-auto" id="information">
+        <div class="container m-auto shadow" id="information">
                 <div class="info" style="padding: 50px;">
 
 
@@ -245,6 +306,12 @@
                         <!-- ************************************************ Personal Info ***************************************************-->
                         <!-- ------------------------------------------------ ------------- ----------------------------------------------------->
                         <div id="personal">
+                                <div class="flex justify-center" style="padding-top: 50px;">
+                                        <p class="text_yellow text_center" style="font-size: larger;">ID </p>
+                                        <p class="text_center"
+                                                style="color: var(--m_info_data);font-size: larger;margin-left: 20px;"
+                                                id="id">__</p>
+                                </div>
                                 <div class="personal flex justify-evenly">
                                         <div class="left w-3/6 text_center flex justify-start">
                                                 <div class="l-left w-3/6 text_center">
@@ -254,9 +321,9 @@
                                                 </div>
 
                                                 <div class="r-right w-3/6 text_center">
-                                                        <p class="m-20" id="name">Tarek</p>
-                                                        <p class="m-20" id="gender">Male</p>
-                                                        <p class="m-20" id="age">Age</p>
+                                                        <p class="m-20" id="name">__</p>
+                                                        <p class="m-20" id="gender">__</p>
+                                                        <p class="m-20" id="age">__</p>
 
                                                 </div>
                                         </div>
@@ -269,9 +336,9 @@
                                                 </div>
 
                                                 <div class="r-right w-3/6 text_center">
-                                                        <p class="m-20" id="name">tarekhassan3874@gmail.com</p>
-                                                        <p class="m-20" id="gender">01068235608</p>
-                                                        <p class="m-20" id="age">Qena, Qism Qena</p>
+                                                        <p class="m-20" id="email">__</p>
+                                                        <p class="m-20" id="phone">__</p>
+                                                        <p class="m-20" id="address">__</p>
 
                                                 </div>
                                         </div>
@@ -293,7 +360,7 @@
                         <div class="account" id="account">
                                 <div class="grid grid-rows-1 grid-cols-2 text_center">
                                         <p class="col-span-1 text_yellow">Balance</p>
-                                        <span class="col-span-1">1000 L.E</span>
+                                        <span class="col-span-1" id="balance">__</span>
                                 </div>
 
                                 <div class="flex justify-center">
@@ -312,10 +379,8 @@
                                                 </div>
 
                                                 <div class="grid grid-rows-1 grid-cols-2" style="padding: 50px;">
-                                                        <span class="col-span-1"
-                                                                id="last_withdraw_date">11/2/2021</span>
-                                                        <span class="col-span-1" id="last_withdraw_amount">5000
-                                                                L.E</span>
+                                                        <span class="col-span-1" id="last_withdraw_date">__</span>
+                                                        <span class="col-span-1" id="last_withdraw_amount">__</span>
                                                 </div>
                                         </div>
 
@@ -327,9 +392,8 @@
 
                                                 </div>
                                                 <div class="grid grid-rows-1 grid-cols-2" style="padding: 50px;">
-                                                        <span class="col-span-1" id="last_deposit_date">10/2/2021</span>
-                                                        <span class="col-span-1" id="last_deposit_amount">3000
-                                                                L.E</span>
+                                                        <span class="col-span-1" id="last_deposit_date">__</span>
+                                                        <span class="col-span-1" id="last_deposit_amount">__</span>
                                                 </div>
                                         </div>
                                 </div>
@@ -348,17 +412,23 @@
                         <div class="customer_service" id="customer_service">
                                 <div class="grid grid-rows-1 grid-cols-2">
                                         <div class="col-span-2 text_center" style="padding: 50px;">
-                                                <p>Last complaint</p>
-                                                <div class="grid grid-rows-1 grid-cols-2" style="padding: 50px;">
+                                                <p style="font-size: larger;font-weight: bold;">Last complaint</p>
+                                                <div class="grid grid-rows-1 grid-cols-5" style="padding: 50px;">
                                                         <p class="col-span-1 text_yellow">Date</p>
+                                                        <p class="col-span-1 text_yellow">Time</p>
                                                         <p class="col-span-1 text_yellow">Type</p>
+                                                        <p class="col-span-1 text_yellow">Emplyee Name</p>
+                                                        <p class="col-span-1 text_yellow">Satisfaction</p>
 
                                                 </div>
 
-                                                <div class="grid grid-rows-1 grid-cols-2" style="padding: 50px;">
-                                                        <span class="col-span-1" id="last_call_date">11/2/2021</span>
-                                                        <span class="col-span-1" id="last_call_amount">Credit Card not
-                                                                working</span>
+                                                <div class="grid grid-rows-1 grid-cols-5" style="padding: 50px;">
+                                                        <span class="col-span-1" id="last_complaint_date">__</span>
+                                                        <span class="col-span-1" id="last_complaint_time">__</span>
+                                                        <span class="col-span-1" id="last_complaint_type">__</span>
+                                                        <span class="col-span-1" id="last_complaint_employee">__</span>
+                                                        <span class="col-span-1" id="last_complaint_satis">__</span>
+
                                                 </div>
                                         </div>
                                 </div>
@@ -375,8 +445,56 @@
                 <p style="color: rgb(197, 197, 197);">Copyrights@ 2021 AAST Dr. Yasser Omar's Team </p>
         </footer>
 
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"
+                integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+
+
         <script>
-                var stream, recorder, chunks, media, urll = "/predict", resp;
+
+
+
+
+                // -------------------------------- Reading the csv file -------------------------------------------
+                var clients = [];
+                $(document).ready(function () {
+                        $.ajax({
+                                type: "GET",
+                                url: "static/clients.csv",
+                                dataType: "text",
+                                success: function (data) { processData(data); }
+                        });
+                });
+
+                function processData(allText) {
+                        var allTextLines = allText.split(/\r\n|\n/);
+                        var headers = allTextLines[0].split(',');
+
+                        for (var i = 1; i < allTextLines.length; i++) {
+                                var data = allTextLines[i].split(',');
+                                if (data.length == headers.length) {
+
+                                        var tarr = {};
+                                        for (var j = 0; j < headers.length; j++) {
+                                                tarr[headers[j]] = data[j]
+                                        }
+                                        clients.push(tarr)
+                                }
+                        }
+
+                }
+                // -------------------------------- Reading the csv file -------------------------------------------
+
+
+
+
+
+
+                var stream, recorder, chunks, media, urll = "http://127.0.0.1:5500/predict";
                 media = { tag: 'audio', type: 'audio/webm;codecs=opus', gUM: { audio: true } }
                 function makeLink() {
                         var file = new File(chunks, "output");
@@ -391,19 +509,40 @@
 
                                 resp = content;
                                 console.log(resp)
+                                document.getElementById('information').style.display = 'block';
+                                fill_res_data(resp);
                         })();
                         /*
                         fetch(urll, {
                                 method: 'POST',
                                 body: ,
                         }).then(res => {
-                                if (res.ok) console.log(res.responseText);
+                                if (res.ok) {
+                                        
+                                }
                         }).catch(err => {
                                 console.log(err);
                         });
                         */
 
                 }
+
+
+                // -------------------------------------------------- fill data based on id from res -----------------------------------------
+                function fill_res_data(res) {
+                        clients.sort(function (a, b) { return parseInt(a.id) - parseInt(b.id) })
+                        var client = clients[87] // res[0]
+                        var I = ["id", "name", "gender", "age", "email", "phone", "address", "balance", "last_withdraw_date",
+                                "last_withdraw_amount", "last_deposit_date", "last_deposit_amount", "last_complaint_date", "last_complaint_time",
+                                "last_complaint_type", "last_complaint_employee", "last_complaint_satis"];
+                        for (i of I) {
+                                p = document.getElementById(i).innerText = client[i];
+                        }
+                }
+                // -------------------------------------------------- fill data based on id from res -----------------------------------------
+
+
+
 
                 function toggle_recording() {
                         var e = document.getElementById("toggle-record")
@@ -438,43 +577,83 @@
 
                 function choose_info(type) {
 
-                        var A, B, C;
-                        var a, b, c;
+                        var A = document.getElementById('personal');
+                        var B = document.getElementById('account');
+                        var C = document.getElementById('customer_service');
+                        var a = document.getElementById('personal_info');
+                        var b = document.getElementById('account_info');
+                        var c = document.getElementById('customer_info');
                         if (type === 'personal') {
-                                a = document.getElementById('personal_info');
-                                b = document.getElementById('account_info');
-                                c = document.getElementById('customer_info');
+                                A.style.display = 'block';
+                                B.style.display = 'none';
+                                C.style.display = 'none';
 
-                                A = document.getElementById('personal');
-                                B = document.getElementById('account');
-                                C = document.getElementById('customer_service');
+                                a.classList.add('info_selected');
+                                b.classList.remove('info_selected');
+                                c.classList.remove('info_selected');
                         }
                         else if (type == 'account') {
-                                a = document.getElementById('account_info');
-                                b = document.getElementById('personal_info');
-                                c = document.getElementById('customer_info');
+                                A.style.display = 'none';
+                                B.style.display = 'block';
+                                C.style.display = 'none';
 
-                                A = document.getElementById('account');
-                                B = document.getElementById('personal');
-                                C = document.getElementById('customer_service');
+                                a.classList.remove('info_selected');
+                                b.classList.add('info_selected');
+                                c.classList.remove('info_selected');
                         }
                         else {
-                                a = document.getElementById('customer_info');
-                                b = document.getElementById('account_info');
-                                c = document.getElementById('personal_info');
+                                A.style.display = 'none';
+                                B.style.display = 'none';
+                                C.style.display = 'block';
 
-                                A = document.getElementById('customer_service');
-                                B = document.getElementById('account');
-                                C = document.getElementById('personal');
+                                a.classList.remove('info_selected');
+                                b.classList.remove('info_selected');
+                                c.classList.add('info_selected');
+                        }
+                }
+
+                function toggle_mode() {
+                        var e = document.getElementById('toggle_mode')
+                        var r = document.querySelector(':root');
+
+                        if (e.innerText === "Normal mode") {
+                                e.innerText = "Dark mode";
+                                r.style.setProperty('--m_body', 'var(--wm_body)');
+
+                                r.style.setProperty('--m_nav_headlines', 'var(--wm_nav_headlines)');
+                                r.style.setProperty('--m_nav_headlines_hover', 'var(--wm_nav_headlines_hover)');
+                                r.style.setProperty('--m_nav_headlines_selected', 'var(--wm_nav_headlines_selected)');
+                                r.style.setProperty('--m_nav_headlines_active_underline', 'var(--wm_nav_headlines_active_underline)');
+
+                                r.style.setProperty('--m_mic_shadow', 'var(--wm_mic_shadow)');
+                                r.style.setProperty('--m_mic_outer2', 'var(--wm_mic_outer2)');
+
+                                r.style.setProperty('--m_info', 'var(--wm_info)');
+                                r.style.setProperty('--m_info_headlines', 'var(--wm_info_headlines)');
+                                r.style.setProperty('--m_info_headlines_active', 'var(--wm_info_headlines_active)');
+                                r.style.setProperty('--m_info_headlines_hover', 'var(--wm_info_headlines_hover)');
+                                r.style.setProperty('--m_info_headlines_active_underline', 'var(--wm_info_headlines_active_underline)');
+                                r.style.setProperty('--m_info_names', 'var(--wm_info_names)');
+                                r.style.setProperty('--m_info_data', 'var(--wm_info_data)');
+                        }
+                        else {
+                                e.innerText = "Normal mode"
+                                r.style.setProperty('--m_body', 'var(--dm_body)');
+                                r.style.setProperty('--m_nav_headlines', 'var(--dm_nav_headlines)');
+                                r.style.setProperty('--m_nav_headlines_hover', 'var(--dm_nav_headlines_hover)');
+                                r.style.setProperty('--m_nav_headlines_selected', 'var(--dm_nav_headlines_selected)');
+                                r.style.setProperty('--m_nav_headlines_active_underline', 'var(--dm_nav_headlines_active_underline)');
+                                r.style.setProperty('--m_mic_shadow', 'var(--dm_mic_shadow)');
+                                r.style.setProperty('--m_mic_outer2', 'var(--dm_mic_outer2)');
+                                r.style.setProperty('--m_info', 'var(--dm_info)');
+                                r.style.setProperty('--m_info_headlines', 'var(--dm_info_headlines)');
+                                r.style.setProperty('--m_info_headlines_hover', 'var(--dm_info_headlines_hover)');
+                                r.style.setProperty('--m_info_headlines_active', 'var(--dm_info_headlines_active)');
+                                r.style.setProperty('--m_info_headlines_active_underline', 'var(--dm_info_headlines_active_underline)');
+                                r.style.setProperty('--m_info_names', 'var(--dm_info_names)');
+                                r.style.setProperty('--m_info_data', 'var(--dm_info_data)');
                         }
 
-                        A.style.display = 'block';
-                        B.style.display = 'none';
-                        C.style.display = 'none';
-
-                        a.classList.add('info_selected');
-                        b.classList.remove('info_selected');
-                        c.classList.remove('info_selected');
                 }
 
 
@@ -482,8 +661,6 @@
         </script>
 
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                crossorigin="anonymous"></script>
+
 
 </body>
