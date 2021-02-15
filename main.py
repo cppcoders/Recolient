@@ -46,7 +46,7 @@ def pred():
     r = requests.post(url, data=file)
 
     print(r.text)
-    return r.text
+    return {"data": str(r.text)}
 
 
 if __name__ == '__main__':

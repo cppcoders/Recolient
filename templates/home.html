@@ -205,7 +205,7 @@
 
                 #information {
                         display: none;
-                } 
+                }
 
                 .personal {
                         padding: 50px;
@@ -530,7 +530,7 @@
 
                 // -------------------------------------------------- fill data based on id from res -----------------------------------------
                 function fill_res_data(resp) {
-                        var temp = resp.split("/");
+                        var temp = resp["data"].split("/");
                         var client = clients[parseInt(temp[0])]
                         var I = ["id", "name", "gender", "age", "email", "phone", "address", "balance", "last_withdraw_date",
                                 "last_withdraw_amount", "last_deposit_date", "last_deposit_amount", "last_complaint_date", "last_complaint_time",
