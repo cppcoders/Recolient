@@ -203,9 +203,9 @@
                         color: var(--m_info_headlines_hover);
                 }
 
-                /* #information {
+                #information {
                         display: none;
-                } */
+                } 
 
                 .personal {
                         padding: 50px;
@@ -529,9 +529,8 @@
 
 
                 // -------------------------------------------------- fill data based on id from res -----------------------------------------
-                function fill_res_data(res) {
-                        clients.sort(function (a, b) { return parseInt(a.id) - parseInt(b.id) })
-                        var client = clients[87] // res[0]
+                function fill_res_data(resp) {
+                        var client = clients[parseInt(resp)]
                         var I = ["id", "name", "gender", "age", "email", "phone", "address", "balance", "last_withdraw_date",
                                 "last_withdraw_amount", "last_deposit_date", "last_deposit_amount", "last_complaint_date", "last_complaint_time",
                                 "last_complaint_type", "last_complaint_employee", "last_complaint_satis"];
